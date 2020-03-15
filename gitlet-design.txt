@@ -1,0 +1,50 @@
+Gitlet Design Document
+----------------------
+
+
+Classes and Data Structures
+---------------------------
+**** Blob ****
+This class represent the contents of the files. Including the file name, a list of byte of contents and a string of contents. The SHA1 value.
+
+**** Commit ****
+The log message of current commit, the HashMap of parent blobs and current blobs. The SHA1 of parent commit to track. Also date message. The SHA1 of myself.
+
+**** Branch ****
+A branch of commit in this branch. And also the current branch name and current commit. 
+
+**** Stage ****
+A HashMap of current blob that added to the stage and a HashMap of delete. Also the current branch. A HashMap of all the branches.
+
+**** Main ****
+Figure out which method to call according to the args.
+
+**** Gitlet ****
+All the method in it.
+
+
+
+Algorithms
+----------
+**** Blob Class ****
+1.setcontents(): recording the contents of the file.
+2.get_SHA1(): calculate the SHA1 according to the file contents and file name.
+
+**** Commit Class ****
+1.get_SHA1(): calculate the SHA1 according to the blob tree and all the other message of this commit.
+
+**** Branch Class ****
+1.set_commit(Commit commit): set the current commit of this branch.
+
+**** Stage Class ****
+1.clear(): clear the stage after commit. Make the add HashMap and delete HashMap clear.
+2.set_currentbranch(Branch branch): set the branch of the stage outside the class.
+3.set_branches(Branch newbranch);
+4.remove_branch(String branchname);
+
+
+Persistence
+-----------
+In order to memorize the status of our gitlet, so that next time we run the gitlet main method, we can find what we had committed, added and the committree, branchtree, current commit and current branch.
+To do this, I store the blob as a HashMap into Commit, store Commit as a HashMap into Branch, and store the HashMap of branch in Stage.
+With the help of serialize, write Stage stagearea in to the working directory after every single changes. Every time there is a new command, I will read the file that contains my stage and get the previous information.

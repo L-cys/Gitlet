@@ -1,0 +1,65 @@
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "added wug"
+<<<
+> branch second
+<<<
+> checkout second
+<<<
++ notwug.txt notwug.txt
+> add notwug.txt
+<<<
+> commit "added notwug"
+<<<
+> checkout master
+<<<
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> commit "added notwug"
+<<<
+> merge second
+<<<
+> status
+=== Branches ===
+*master
+second
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+D HEADER "commit [a-f0-9]+"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+D ID "[a-f0-9]{7}"
+> log
+===
+${HEADER}
+Merge: ${ID} ${ID}
+${DATE}
+Merged second into master.
+
+===
+${HEADER}
+${DATE}
+added notwug
+
+===
+${HEADER}
+${DATE}
+added wug
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*

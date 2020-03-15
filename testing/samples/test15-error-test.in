@@ -1,0 +1,8 @@
+> init
+<<<
+> addddd
+No command with that name exists.
+<<<
+> init
+A Gitlet version-control system already exists in the current directory.
+<<<

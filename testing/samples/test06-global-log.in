@@ -1,0 +1,48 @@
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "added wug"
+<<<
+> branch second
+<<<
+> checkout second
+<<<
++ notwug.txt notwug.txt
+> add notwug.txt
+<<<
+> commit "add notwug"
+<<<
+> checkout master
+<<<
++ notwug.txt wug.txt
+> add notwug.txt
+<<<
+> commit "version2 of notwug"
+<<<
+D HEADER "commit [a-f0-9]+"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+
+# > global-log
+# ===
+# ${HEADER}
+# ${DATE}
+# added wug
+
+# ===
+# ${HEADER}
+# ${DATE}
+# add notwug
+
+# ===
+# ${HEADER}
+# ${DATE}
+# version2 of notwug
+
+# ===
+# ${HEADER}
+# ${DATE}
+# initial commit
+# <<<
+

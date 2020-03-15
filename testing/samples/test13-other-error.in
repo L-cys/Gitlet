@@ -1,0 +1,29 @@
+>
+Please enter a command.
+<<<
+> status
+Not in an initialized Gitlet directory.
+<<<
+> adddd
+No command with that name exists.
+<<<
+> init
+<<<
+> commit "no change test"
+No changes added to the commit.
+<<<
++ wug.txt wug.txt
+> add notwug.txt
+File does not exist.
+<<<
+> add wug.txt
+<<<
+> commit
+Please enter a commit message.
+<<<
+> init
+A Gitlet version-control system already exists in the current directory.
+<<<
+> rm notwug.txt
+No reason to remove the file.
+<<<

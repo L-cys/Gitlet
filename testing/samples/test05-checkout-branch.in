@@ -1,0 +1,49 @@
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "added wug"
+<<<
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> commit "version 2 of wug.txt"
+<<<
+> branch second
+<<<
+> checkout second
+<<<
++ notwug.txt notwug.txt
+> add notwug.txt
+<<<
+> commit "add notwug"
+<<<
+> checkout master
+<<<
++ notwug.txt wug.txt
+> add notwug.txt
+<<<
+> commit "version2 of notwug"
+<<<
+> status
+=== Branches ===
+*master
+second
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+
+<<<
+> checkout third
+No such branch exists.
+<<<
+> checkout master
+No need to checkout the current branch.
+<<<
+

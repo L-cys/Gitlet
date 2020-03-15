@@ -1,0 +1,13 @@
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "added wug"
+<<<
+> find "initial commit"
+6be3acaa81987a291d2d4109897857bcd517a4c0
+<<<
+> find "added"
+Found no commit with that message.
+<<<

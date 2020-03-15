@@ -1,0 +1,138 @@
+> init
+<<<
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+D COMMIT_HEAD "commit ([a-f0-9]+)[ \t]*\n(?:Merge:\s+[0-9a-f]{7}\s+[0-9a-f]{7}[ ]*\n)?${DATE}"
+D COMMIT_LOG "(===[ ]*\ncommit [a-f0-9]+[ ]*\n(?:Merge:\s+[0-9a-f]{7}\s+[0-9a-f]{7}[ ]*\n)?${DATE}[ ]*\n(?:.|\n)*?(?=\Z|\n===))"
+D ARBLINE "[^\n]*(?=\n|\Z)"
+D ARBLINES "(?:(?:.|\n)*(?:\n|\Z)|\A|\Z)"
++ f1.txt wug.txt
++ f2.txt notwug.txt
+> add f2.txt
+<<<
+> add f1.txt
+<<<
+> commit "Two files"
+<<<
+> branch other
+<<<
++ f3.txt wug.txt
+> add f3.txt
+<<<
+> rm f2.txt
+<<<
+> commit "Add f3.txt and remove f2.txt"
+<<<
+> checkout other
+<<<
+> rm f1.txt
+<<<
++ f4.txt notwug.txt
+> add f4.txt
+<<<
+> commit "Add f4.txt and remove f1.txt"
+<<<
+D HEADER "commit [a-f0-9]+"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+> log
+===
+${COMMIT_HEAD}
+Add f4.txt and remove f1.txt
+
+===
+${COMMIT_HEAD}
+Two files
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+D INIT "${3}"
+D TWO "${2}"
+D OTHER1 "${1}"
+
+> checkout master
+<<<
+> log
+===
+${COMMIT_HEAD}
+Add f3.txt and remove f2.txt
+
+===
+${COMMIT_HEAD}
+Two files
+
+===
+${COMMIT_HEAD}
+initial commit
+<<<*
+D MASTER1 "${1}"
+> reset ${TWO}
+<<<
+> status
+=== Branches ===
+\*master
+other
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+(m\.txt\n)?\s*
+<<<*
+
+> log
+===
+${COMMIT_HEAD}
+Two files
+
+===
+${COMMIT_HEAD}
+initial commit
+<<<*
+> checkout other
+<<<
+> log
+===
+${COMMIT_HEAD}
+Add f4.txt and remove f1.txt
+
+===
+${COMMIT_HEAD}
+Two files
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+> checkout master
+<<<
+> log
+===
+${COMMIT_HEAD}
+Two files
+
+===
+${COMMIT_HEAD}
+initial commit
+<<<*
+> reset ${MASTER1}
+<<<
+> log
+===
+${COMMIT_HEAD}
+Add f3.txt and remove f2.txt
+
+===
+${COMMIT_HEAD}
+Two files
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
